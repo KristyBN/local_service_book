@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service_offered: MyString
+  category: 1
+  description: MyText
+  hourly_rate: 9.99
+  calendly_url: MyText
+
+two:
+  service_offered: MyString
+  category: 1
+  description: MyText
+  hourly_rate: 9.99
+  calendly_url: MyText

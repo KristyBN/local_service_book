@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Service offered:</strong>
+  <%= @service.service_offered %>
+</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <%= image_tag @service.picture, class:'rounded float-left', width: 250 if @service.picture.attached? %>
+    </div>
+  <div class="col">
+<p>
+  <strong>Category:</strong>
+  <%= @service.category %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @service.description %>
+</p>
+
+<p>
+  <strong>Hourly rate:</strong>
+  <%= number_to_currency @service.hourly_rate %> per hour
+</p>
+
+<p>
+  <strong>Calendly url:</strong>
+  <%= @service.calendly_url %>
+</p>
+<p>
+    <% if user_signed_in? %>
+      <%= link_to "Book now", root_path(service_id: @service.id), class:"btn btn-dark" %>
+    <% else %>
+      <%= link_to "Sign-in to book!", new_user_registration_path, class:"btn btn-dark" %>
+    <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>
+</div>
+</div>

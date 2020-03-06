@@ -1,0 +1,47 @@
+<%= form_with(model: service, local: true) do |form| %>
+  <% if service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+
+      <ul>
+        <% service.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :service_offered %>
+    <%= form.text_field :service_offered %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select :category, @category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hourly_rate %>
+    <%= form.text_field :hourly_rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :calendly_url %>
+    <%= form.text_area :calendly_url %>
+  </div>
+  
+   <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture, accept:'image/png,image/gif,image/jpeg,image/jpg' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:'btn btn-primary'%>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Business name:</strong>
+  <%= @business.business_name %>
+</p>
+
+<p>
+  <strong>Service region:</strong>
+  <%= @business.service_region %>
+</p>
+
+<%= link_to 'Edit', edit_business_path(@business) %> |
+<%= link_to 'Back', businesses_path %>
+<div>
+
+<button>
+<%= link_to 'Create New Service', new_service_path %>
+</button>
+</div>

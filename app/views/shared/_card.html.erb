@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div class="box">
+  <div class="card-deck">
+    <% @services.each do |service| %>
+      <div class="card" style="min-width:250px;">
+      <%= image_tag service.picture, class:"card-img-top", width: 120  if service.picture.attached? %>
+      <div class="card-body">
+      <h5 class="card-title"><%= link_to "#{service.service_offered.capitalize}", service_path(service) %></h5>
+      <p class="card-text">
+        <p>Service offered:<%= service.service_offered %></p>
+        <p>Category:<%= service.category %></p>
+        <p>Description:<%= service.description %>
+        <p>Hourly rate:<%= service.hourly_rate %></p>
+        <p>Calendly url:<%= service.calendly_url %></p>
+        <td><%= link_to 'Show', service %></td>
+        <% if user_signed_in? && current_user.business.id %>
+        <td><%= link_to 'Edit', edit_service_path(service) %></td>
+        <td><%= link_to 'Delete', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+    </p>
+    </div>
+    <div class="card-footer">
+      <button>
+        <%= link_to "Find out more", service_path(service) %>  
+    </button>
+    </div>
+  </div>   
+    <% end %>
+  </div>
+<br>
+<br>
+<br>
+<br>
+<div>
+<% if user_signed_in? && current_user.business.id %>
+  <button>
+    <%= link_to 'New Service', new_service_path %>
+  </button>
+<% end %>
+</div>

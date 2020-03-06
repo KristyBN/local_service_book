@@ -1,0 +1,15 @@
+  <div id="mySidenav" class="sidenav">
+  <span class="opennav" onclick="openNav()"></span>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <% if user_signed_in? %>
+        <p class="btn"><%= link_to 'My page', businesses_path %></p>
+    <% end %>
+    <p class="btn"><%= link_to 'Home', root_path %></p>
+    <p class="btn"><%= link_to 'Find a trade', services_category_path(0) %></p>
+    <p class="btn"><%= link_to 'Find an entertainer', services_category_path(1) %></p>
+    <p class="btn"><%= link_to 'Find personal services', services_category_path(2) %></p>
+    <p class="btn"><%= link_to 'Find Health and Fitness', services_category_path(3) %></p>
+    <p class="btn"><%= link_to 'Find a carpark', services_category_path(4) %></p>
+    <p class="btn"><%= link_to 'Find rentals and hire', services_category_path(5) %></p>
+    <p class="btn"><%= link_to 'Add a service', businesses_path %></p>
+</div>

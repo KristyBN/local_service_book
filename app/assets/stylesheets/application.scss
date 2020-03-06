@@ -1,0 +1,142 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+
+ */
+ @import "bootstrap";
+
+
+ .sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    color: rgb(0, 255, 30);
+    background-color: rgb(250, 250, 250);  
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'Julius Sans One', sans-serif;
+    color: rgb(10, 10, 10);
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: rgb(0, 255, 30);
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+
+  .opennav {
+    color: white;
+}
+
+    .nav-item {
+        color: white;
+    }
+
+    footer.page-footer {
+      background-color: #667490;
+      position:fixed;
+      bottom:0;
+    }
+  
+  /* Style page content to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    padding: 0px;
+  }
+  
+  body {
+    min-height: 100vh;
+    background-color: lightgray;
+    // background-image: url(image_path('connect.jpg'));
+    background-repeat: repeat;
+    background-attachment: fixed;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+  }
+
+.container{
+    opacity: 90%;
+    justify-content: center;
+ 
+  .image {
+      width: 50%;
+  }
+  .white-box {
+    background-color: white;
+    opacity: 80%;
+  }
+
+
+  h1 {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    color:rgb(0, 255, 30);
+    font-size: 35px;
+    font-family: 'Julius Sans One', sans-serif;
+  }
+ 
+}
+
+  .card {
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    height: 300px;
+    margin: 1rem;
+    position: relative;
+    width: 300px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    
+  }
+  
+  .card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  .card-title {
+    color: rgb(0, 255, 30);
+  }
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+ 
+  
+  
+  

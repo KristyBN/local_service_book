@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Local Services Book</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Open+Sans+Condensed:300&display=swap');
+    </style>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+    <header class="top-nav row align-items-end bg-light">
+      <%= render "shared/topnav" %>
+      <%= render "shared/sidenav" %>
+    </header>
+      
+       <script>
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+          }
+
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+          }
+      </script>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+        <% if notice %>
+          <p class="notice"><%= notice %></p>
+        <%end%>
+        <%if alert%>
+        <p class="alert"><%= alert %></p>
+        <% end %>
+         <div id="main">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <%= yield %>
+                </div>
+              </div>
+            </div>
+          </div> 
+  </footer>
+  </body> 
+</html>
