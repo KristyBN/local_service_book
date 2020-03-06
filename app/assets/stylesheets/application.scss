@@ -130,6 +130,18 @@
     color: rgb(0, 255, 30);
   }
 
+  .card_business{
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    height: 150px;
+    margin: 1rem;
+    position: relative;
+    width: 250px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}

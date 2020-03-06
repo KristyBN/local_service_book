@@ -10,11 +10,23 @@
   <%= @business.service_region %>
 </p>
 
+<div class="card_business">
+<% @business.services.each do |service|%>
+<p><%= service.service_offered %></p>
+<%= link_to 'Show', service %>|
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
+<%end%>
 <div>
-
+</div>
+<br>
+<br>
+<br>
+<div>
 <button>
 <%= link_to 'Create New Service', new_service_path %>
 </button>
 </div>
+</div>
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_011718) do
+ActiveRecord::Schema.define(version: 2020_03_06_044412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 2020_03_06_011718) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "my_lists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "business_id", null: false
+    t.bigint "services_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_id"], name: "index_my_lists_on_business_id"
+    t.index ["services_id"], name: "index_my_lists_on_services_id"
+    t.index ["user_id"], name: "index_my_lists_on_user_id"
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "service_offered", null: false
     t.integer "category", null: false
@@ -96,5 +107,8 @@ ActiveRecord::Schema.define(version: 2020_03_06_011718) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "businesses", "users"
+  add_foreign_key "my_lists", "businesses"
+  add_foreign_key "my_lists", "services", column: "services_id"
+  add_foreign_key "my_lists", "users"
   add_foreign_key "services", "businesses"
 end

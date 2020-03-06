@@ -11,7 +11,12 @@ class BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.json
   def show
-    @business = Business.find(params[:id])
+    if current_user.business.id == params[:id].to_i
+      @business = current_user.business
+      @business.services
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /businesses/new
