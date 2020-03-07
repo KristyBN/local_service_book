@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_044412) do
+ActiveRecord::Schema.define(version: 2020_03_07_061332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 2020_03_06_044412) do
     t.index ["user_id"], name: "index_my_lists_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "service_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_orders_on_service_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "service_offered", null: false
     t.integer "category", null: false
@@ -110,5 +119,7 @@ ActiveRecord::Schema.define(version: 2020_03_06_044412) do
   add_foreign_key "my_lists", "businesses"
   add_foreign_key "my_lists", "services", column: "services_id"
   add_foreign_key "my_lists", "users"
+  add_foreign_key "orders", "services"
+  add_foreign_key "orders", "users"
   add_foreign_key "services", "businesses"
 end

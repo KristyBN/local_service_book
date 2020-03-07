@@ -12,9 +12,9 @@
         <p>Category:<%= service.category %></p>
         <p>Description:<%= service.description %>
         <p>Hourly rate:<%= service.hourly_rate %></p>
-        <p>Calendly url:<%= service.calendly_url %></p>
         <td><%= link_to 'Show', service %></td>
-        <% if user_signed_in? && current_user.business.id %>
+
+       <% if user_signed_in? && current_user.business == service.business %>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Delete', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
@@ -33,7 +33,7 @@
 <br>
 <br>
 <div>
-<% if user_signed_in? && current_user.business.id %>
+<% if user_signed_in? && current_user.business %>
   <button>
     <%= link_to 'New Service', new_service_path %>
   </button>

@@ -24,6 +24,25 @@ class OrdersController < ApplicationController
   def complete
   end
 
+#  def index
+ #   @order = current_user.services
+  #end
+  
+#  def self.contains?(current_user, service)
+ #   return current_user.services.where(id: service.id).length > 0
+  #end
+
+  #def self.create_order(current_user, service)
+   # if current_user.services.where(id: service.id).length == 0
+    #  current_user.services.push(service)
+     # current_user.save
+   # end
+ # end
+
+# def self.order(current_user, service)
+  #  return Order.where("service_id = ? AND user_id", service, current_user.id).first.id
+ # end
+
 
   def webhook
     payment_id = params[:data][:object][:payment_intent]
@@ -32,7 +51,11 @@ class OrdersController < ApplicationController
     user_id = payment.metadata.user_id
     p "service id #{service_id}"
     p "user id #{user_id}"
+    # order = Order.new(user_id: user_id, service_id: service_id)
+    # order.save
     render plain: "Success"
   end
+
+
  
 end
