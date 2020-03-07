@@ -27,11 +27,14 @@
 
 <p>
   <strong>Calendly url:</strong>
-  <%= @service.calendly_url %>
+  <!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="<%= @service.calendly_url %>?primary_color=02fff00" style="min-width:320px;height:630px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+<!-- Calendly inline widget end -->
 </p>
 <p>
     <% if user_signed_in? %>
-      <%= link_to "Book now", root_path(service_id: @service.id), class:"btn btn-dark" %>
+      <%= link_to "Book now", new_order_path(service_id: @service.id), class:"btn btn-dark" %>
     <% else %>
       <%= link_to "Sign-in to book!", new_user_registration_path, class:"btn btn-dark" %>
     <% end %>

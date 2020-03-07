@@ -58,7 +58,7 @@ class ServicesController < ApplicationController
     current_user.services.push(service)
     if current_user.save
         flash[:notice] = "Added new service"
-        redirect_to trade_category__path
+        redirect_to service__path
     else
         flash[:alert] = "Oops! There was a problem adding that service"
         redirect_back(fallback_location: service_path)

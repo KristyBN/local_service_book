@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'orders/new'
   devise_for :users
   resources :services
   resources :businesses
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   get "/services/category/:category", to: "services#category", as: "services_category"
   
   get "orders", to: "orders#new", as: "new_order"
+  get "/orders/complete", to:"orders#complete", as: "complete_order"
+  post "/orders/webhook", to: "orders#webhook"
 
   #display my list of services
   get "/businesses/:id", to: "businesses#show", as: "business_page"

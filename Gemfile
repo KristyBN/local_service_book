@@ -61,3 +61,7 @@ gem 'jquery-rails'
 gem "devise", "~> 4.7"
 
 gem "aws-sdk-s3", "~> 1.60"
+
+gem "stripe", "~> 5.17"
+
+gem "ultrahook", "~> 0.1.5"
