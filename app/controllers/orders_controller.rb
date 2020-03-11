@@ -27,9 +27,9 @@ class OrdersController < ApplicationController
   end
 
   def my_order
-    # @my_order = current_user.services.service_offered
-    @my_order = Order.where(user_id: current_user.id)
+    @my_order = Order.where(user_id: current_user.id) 
   end
+
 
   def webhook
     payment_id = params[:data][:object][:payment_intent]

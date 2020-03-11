@@ -1,13 +1,15 @@
 <h1>Orders</h1>
 <div class="my_order">
     <% @services.each do |service|%>
-    <p><%=  service.service_offered %></p>
-            <ul>
-        <% service.orders.each do |order|%>
-                <li><%= order.user.first_name %> <%= order.user.last_name %></li>
-        <% end %>
-            </ul>
-    <%= link_to 'Show', service_path(service.id) %>|
+    <% if service.orders.length > 0 %>
+        <p><%=  service.service_offered %></p>
+                <ul>
+            <% service.orders.each do |order|%>
+                    <li><%= order.user.first_name %> <%= order.user.last_name %></li>
+            <% end %>
+                </ul>
+        <%= link_to 'Show', service_path(service.id) %>|
+        <%end%>
     <%end%>
     <%= link_to 'Back', :back %>
 </div>
