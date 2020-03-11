@@ -69,6 +69,15 @@ class BusinessesController < ApplicationController
     end
   end
 
+  def orders
+    if current_user.business.id == params[:id].to_i
+      @business = current_user.business
+      @services = @business.services
+    else
+      redirect_to root_path
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_business

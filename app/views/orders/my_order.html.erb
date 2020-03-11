@@ -1,0 +1,9 @@
+<div class="my_order">
+    <%if user_signed_in?%>
+        <% @my_order.each do |order|%>
+        <p><%=  order.service.service_offered %></p>
+        <%= link_to 'Show', service_path(order.service.id) %>|
+        <%= link_to 'Back', :back %>
+        <%end%>
+    <%end%>
+</div>

@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
   #display my list of services
   get "/businesses/:id", to: "businesses#show", as: "business_page"
-  get "/mylist", to: "my_list#index", as: "my_list"
+  get "/orders/myorder", to: "orders#my_order", as: "my_order"
+  get "/businesses/:id/orders", to: "businesses#orders", as: "business_orders"
 end
 
 

@@ -13,6 +13,7 @@
 <div class="card_business">
 <% @business.services.each do |service|%>
 <p><%= service.service_offered %></p>
+<%= link_to 'Bookings', business_orders_path(current_user.business.id) %>|
 <%= link_to 'Show', service %>|
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', :back %>
