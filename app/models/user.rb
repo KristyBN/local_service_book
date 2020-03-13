@@ -5,7 +5,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # has_one :member
   has_one :business
   has_many :services, through: :business
 
