@@ -1,4 +1,5 @@
 <!-- create new service form -->
+<div style='width: 50%;'>
 <%= form_with(model: service, local: true) do |form| %>
   <% if service.errors.any? %>
     <div id="error_explanation">
@@ -12,32 +13,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :service_offered %>
-    <%= form.text_field :service_offered %>
+    <%= form.text_field :service_offered, class:"form-control"%>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :category %>
-    <%= form.select :category, @category %>
+    <%= form.select :category, @category, class:"form-control"%>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :hourly_rate %>
-    <%= form.text_field :hourly_rate %>
+    <%= form.text_field :hourly_rate, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :calendly_url %>
-    <%= form.text_area :calendly_url %>
+    <%= form.text_area :calendly_url, class:"form-control" %>
   </div>
   
-   <div class="field">
+   <div class="field form-group">
     <%= form.label :picture %>
     <%= form.file_field :picture, accept:'image/png,image/gif,image/jpeg,image/jpg' %>
   </div>
@@ -46,3 +47,4 @@
     <%= form.submit class:'btn btn-primary'%>
   </div>
 <% end %>
+</div>
