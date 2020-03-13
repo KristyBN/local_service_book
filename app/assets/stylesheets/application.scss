@@ -10,9 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  */
+//  bring in bootstrap
  @import "bootstrap";
 
-
+// side navigation styling
  .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
@@ -35,6 +36,7 @@
     font-family: 'Julius Sans One', sans-serif;
     color: rgb(10, 10, 10);
     display: block;
+    text-align: left;
     transition: 0.3s;
   }
   
@@ -52,15 +54,15 @@
     margin-left: 50px;
   }
 
-
+// style when nav open
   .opennav {
     color: white;
 }
-
+// top nav
     .nav-item {
         color: white;
     }
-
+// footer style and position
     footer.page-footer {
       background-color: #667490;
       position:fixed;
@@ -72,14 +74,14 @@
     transition: margin-left .5s;
     padding: 0px;
   }
-  
+  // background styling
   body {
     min-height: 100vh;
     background-color: lightgray;
-    // background-image: url(image_path('connect.jpg'));
+    // background-image: url(image_path('carbon_fiber_texture.jpg'));
     background-repeat: repeat;
     background-attachment: fixed;
-    text-align: center;
+    // text-align: center;
     background-position: center;
     background-size: cover;
   }
@@ -118,9 +120,10 @@
     width: 300px;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    
   }
-  
+  .card-img{
+    height:300px;
+  }
   .card:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }

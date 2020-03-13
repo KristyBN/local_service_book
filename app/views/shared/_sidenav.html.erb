@@ -1,5 +1,6 @@
-  <div id="mySidenav" class="sidenav">
-  <span class="opennav" onclick="openNav()"></span>
+  <!-- side navigation bar, main menu -->
+<div id="mySidenav" class="sidenav">
+  <span class="opennav"  onclick="openNav()"></span>
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <% if user_signed_in? && current_user.business %>
         <p class="btn"><%= link_to 'My Business', business_page_path(current_user.business.id) %></p>

@@ -3,43 +3,42 @@ class ServicesController < ApplicationController
 
   def welcome
   end
-
+  # display all services
   # GET /services
   # GET /services.json
   def index
     @services = Service.all
   end
-
+  # categorises services based on the enum from service form (hash with key value pair)
   def category
     @services = Service.where("category = ?", params[:category])
     @category = Service.categories.key(params[:category].to_i)
   end
-
+  # shows service page
   # GET /services/1
   # GET /services/1.json
   def show
   end
-
+  # create a new service and category
   # GET /services/new
   def new
     @service = Service.new
     @category = Service.categories.keys
   end
-
+  # edit service and category
   # GET /services/1/edit
   def edit
     @service = Service.find(params[:id])
     @category = Service.categories.keys
 
   end
-
+  # creation of the new service linked to the business id.
   # POST /services
   # POST /services.json
   def create
     @service = Service.new(service_params)
     @service.business_id = current_user.business.id
     @service.picture.attach(params[:service][:picture])
-    # TradeCategory.create_trade_category(current_user, @service)
 
     respond_to do |format|
       if @service.save

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:webhook]
-  
+  # new order created using Stripe with confirmation
   def new
     @service = Service.find(params[:service_id])
     @session = Stripe::Checkout::Session.create(
@@ -22,15 +22,15 @@ class OrdersController < ApplicationController
     cancel_url: "#{root_url}",
     )
   end
-
+  # sends to completion page
   def complete
   end
-
+  # shows user list of ordered services
   def my_order
     @my_order = Order.where(user_id: current_user.id) 
   end
 
-
+  # webhook to complete and register payment with Stripe gives confirmation
   def webhook
     payment_id = params[:data][:object][:payment_intent]
     payment = Stripe::PaymentIntent.retrieve(payment_id)

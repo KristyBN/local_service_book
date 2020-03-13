@@ -3,7 +3,6 @@ class MyListController < ApplicationController
 
     def index
         @services = current_user.business.services
-        # @services = current_user.services
     end
 
     def edit

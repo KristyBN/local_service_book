@@ -3,13 +3,15 @@ class BusinessesController < ApplicationController
   before_action :authenticate_user!
   # GET /businesses
   # GET /businesses.json
+
+  # show all businesses
   def index
     @businesses = Business.all
-    # @businesses = current_user.business
   end
 
   # GET /businesses/1
   # GET /businesses/1.json
+  # The business page
   def show
     if current_user.business.id == params[:id].to_i
       @business = current_user.business
@@ -18,18 +20,19 @@ class BusinessesController < ApplicationController
       redirect_to root_path
     end
   end
-
+  # create a new business
   # GET /businesses/new
   def new
     @business = Business.new
   end
-
+  # edit business
   # GET /businesses/1/edit
   def edit
   end
 
   # POST /businesses
   # POST /businesses.json
+  # create the businees and confirm creation
   def create
     @business = Business.new(business_params)
     @business.user = current_user
@@ -47,6 +50,7 @@ class BusinessesController < ApplicationController
 
   # PATCH/PUT /businesses/1
   # PATCH/PUT /businesses/1.json
+  # update business info with confirmation
   def update
     respond_to do |format|
       if @business.update(business_params)
@@ -68,7 +72,7 @@ class BusinessesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+# orders controller for business to see ordered services once booked
   def orders
     if current_user.business.id == params[:id].to_i
       @business = current_user.business

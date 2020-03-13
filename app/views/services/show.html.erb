@@ -22,7 +22,7 @@
   <strong>Hourly rate:</strong>
   <%= number_to_currency @service.hourly_rate %> per hour
 </p>
-
+<!-- check user is signed in will show calender to enable booking -->
 <p>
 <% if user_signed_in? %>
   <strong>Schedule Booking:</strong>
@@ -35,14 +35,14 @@
 <% end %>
 </p>
 
-
+<!-- if business owner of service they will be able to edit the listing -->
 <% if user_signed_in? && current_user.business == @service.business %>
 <%= link_to 'Edit', edit_service_path(@service) %> |
 <%end%>
 <%= link_to 'Back', :back %>
 </div>
 </div>
-
+<!-- Javascript picks up the event of the calender booking to the send straight to chackout once selected time -->
 <script>
 window.addEventListener("message", receiveMessage);
 
