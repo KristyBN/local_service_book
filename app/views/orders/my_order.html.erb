@@ -4,6 +4,8 @@
     <%if user_signed_in?%>
         <% @my_order.each do |order|%>
         <p><%=  order.service.service_offered %></p>
+        <p><%=  order.service.description%></p>
+        <p><%=  order.service.hourly_rate%></p>
         <%= link_to 'Show', service_path(order.service.id) %>|
         <%= link_to 'Back', :back %>
         <%end%>
